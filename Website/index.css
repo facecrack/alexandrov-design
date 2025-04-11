@@ -1,0 +1,293 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Suisse', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #050505;
+  color: #fafafa;
+	scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a{
+  all: unset;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/AeonikProRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aeonik Mono';
+  src: url('/fonts/AeonikMonoProRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container{
+	padding: 20px 20px 10px 20px;
+}
+
+h1{
+	font-family: 'Aeonik', serif;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 1;
+}
+
+h2{
+	font-family: 'Aeonik', serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 130%;
+}
+
+h3{
+	font-family: 'Aeonik Mono', serif;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+header{
+	display: grid;
+  grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+  grid-column-gap: 2%;
+	
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 20px 0 20px;
+	transition: all 1s ease;
+}
+
+.headerScroll{
+	transition: all 1s ease;
+	padding: 20px 60px 0 60px;
+}
+
+.menu-link-text{
+	font-family: 'Aeonik Mono', serif;
+	font-size: 11px;
+	line-height: 1;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.menu-link-text:nth-child(4){
+	display: flex;
+	justify-self: end;
+}
+
+.location{
+	margin-right: 10px;
+}
+
+.header-section{
+	display: grid;
+	grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+	grid-column-gap: 2%;
+	margin-bottom: 20px;
+}
+
+.about-myself{
+	grid-column-start: 3;
+	margin: 386px 0;
+}
+
+.header-section .menu-link-text{
+	align-self: end;
+}
+
+.logotype{
+	grid-column-start: 3;
+	grid-column-end: 5;
+	content: url(images/logo-light.svg);
+	height: 60px;
+}
+
+.case{
+	display: grid;
+	grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+	grid-column-gap: 2%;
+	position: relative;
+	z-index: 1;
+
+	background-color: #252525;
+	height: 945px;
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.case-image img{
+	grid-column-start: 1;
+	grid-column-end: 5;
+	position: absolute;
+	z-index: -1;
+
+	width: 100%;
+	height: 100%;
+	background-size: contain;
+	transition: transform 1s ease;
+}
+
+.case:hover .case-image img{
+	transform: scale(1.05);
+}
+
+.case-title{
+	position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateX(-50%, -50%);
+}
+
+.case-info{
+	grid-column-start: 3;
+	grid-column-end: 4;
+	align-self: end;
+	margin-bottom: 60px;
+}
+
+.subtitle{
+	margin-bottom: 30px;
+}
+
+.case-button{
+	position: relative;
+}
+
+.case-button:before{
+	content: url(images/arrow-right.svg);
+	position: absolute;
+	top: -1px;
+	right: -22px;
+	transition: all 0.3s ease;
+}
+
+.case-button:after{
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fafafa;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.case-button:hover:before {
+  right: -26px;
+	transition: all 0.3s ease;
+	opacity: 0;
+}
+
+.case-button:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+footer{
+	width: 100%;
+}
+
+footer .logotype{
+	content: url(images/logo-light.svg);
+	width: 100%;
+	height: auto;
+	margin: 240px 0 20px 0;
+}
+
+.footer-info{
+	display: flex;
+	justify-content: space-between;
+}
+
+.socials a{
+	position: relative;
+}
+
+.socials a::after{
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fafafa;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.socials a:hover::after{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Анимации при загрузке */
+body{
+  opacity: 0.1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+body.loaded{
+  opacity: 1;
+}
+
+@keyframes marginAnimation{
+  0% {
+    margin: 386px 0;
+  }
+  100% {
+    margin: 240px 0;
+  }
+}
+
+.about-myself{
+  animation: marginAnimation 0.6s cubic-bezier(0.5, 0.25, 0.10, 1) 0.6s forwards;
+}
+
+/* Цветовой режим */
+body.light-mode {
+  background-color: #fafafa;
+  color: #050505;
+}
+
+body.dark-mode .logotype {
+	content: url(images/logo-dark.svg);
+}
+
+body.light-mode .case {
+  color: #fafafa;
+}
+
+body.light-mode *:not(.works) .case {
+  color: #fafafa;
+}
+
+body.light-mode .headerScroll {
+  color: #fafafa;
+}
+
+body.light-mode .socials a::after {
+	background-color: #050505;
+}
